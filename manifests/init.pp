@@ -2,8 +2,8 @@
 #
 # Examples
 #
-#   include logrotate::base
-class logrotate::base {
+#   include logrotate
+class logrotate {
   package { 'logrotate':
     ensure => latest,
   }
