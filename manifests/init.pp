@@ -3,9 +3,11 @@
 # Examples
 #
 #   include logrotate
-class logrotate {
+class logrotate(
+  $version = installed
+) {
   package { 'logrotate':
-    ensure => latest,
+    ensure => $version,
   }
 
   File {
