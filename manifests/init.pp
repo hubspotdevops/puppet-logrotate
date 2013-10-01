@@ -17,14 +17,14 @@ class logrotate {
   file {
     '/etc/logrotate.conf':
       ensure  => file,
-      mode    => '0444',
+      mode    => '0644',
       source  => 'puppet:///modules/logrotate/etc/logrotate.conf';
     '/etc/logrotate.d':
       ensure  => directory,
       mode    => '0755';
     '/etc/cron.daily/logrotate':
       ensure  => file,
-      mode    => '0555',
+      mode    => '0755',
       source  => 'puppet:///modules/logrotate/etc/cron.daily/logrotate';
   }
 
