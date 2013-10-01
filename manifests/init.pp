@@ -22,10 +22,6 @@ class logrotate {
     '/etc/logrotate.d':
       ensure  => directory,
       mode    => '0755';
-    '/etc/cron.daily/logrotate':
-      ensure  => file,
-      mode    => '0755',
-      source  => 'puppet:///modules/logrotate/etc/cron.daily/logrotate';
   }
 
   case $::osfamily {
