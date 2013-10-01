@@ -4,7 +4,12 @@
 #
 #   include logrotate
 class logrotate(
-  $version = installed
+  $version  = installed,
+  $schedule = 'weekly',
+  $rotate   = '4',
+  $create   = true,
+  $dateext  = false,
+  $compress = true,
 ) {
   package { 'logrotate':
     ensure => $version,
@@ -20,7 +25,7 @@ class logrotate(
     '/etc/logrotate.conf':
       ensure  => file,
       mode    => '0644',
-      source  => 'puppet:///modules/logrotate/etc/logrotate.conf';
+      content => template('logrotate/etc/logrotate.conf.erb');
     '/etc/logrotate.d':
       ensure  => directory,
       mode    => '0755';
